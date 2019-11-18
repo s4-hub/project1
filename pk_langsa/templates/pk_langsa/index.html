@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Pengajuan Persekot Kerja
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+      <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Nama</th>
+      <th scope="col">NPK</th>
+      <th scope="col">Unit Kerja</th>
+      <th scope="col">No HP</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in datas%}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      
+      <td>{{data.nama}}</td>
+      <td>{{data.npk}}</td>
+      <td>{{data.unit_kerja}}</td>
+      <td>{{data.no_hp}}</td>
+      <td>{{data.email}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    </div>
+    <div class="col">
+      <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+<h3>Ini Home Pengajuan PK</h3>
+{% endblock content %}
