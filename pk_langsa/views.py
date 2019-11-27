@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from . models import Karyawan, Persekot
 from .form import KaryawanForm
+from .tasks import karyawan_created, karyawan_jatuh_tempo
 
 # Create your views here.
 
@@ -22,6 +23,9 @@ def karyawan_new(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
+            karyawan_created.delay(post.id)
+            karyawan_jatuh_tempo.apply_async((post.id,),
+                                             countdown=60)
             return redirect('pk_langsa:karyawan_list')
     else:
         form = KaryawanForm()

@@ -25,7 +25,7 @@ SECRET_KEY = ')ea!pn*=uzut+u_y&*o!uw-r$j919wn)451$d4e66cl_65vdau'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0.', '98954921.ngrok.io']
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'pk_langsa.apps.PkLangsaConfig',
+    'webpush',
+
 ]
 
 MIDDLEWARE = [
@@ -101,6 +103,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+WEBPUSH_SETTINGS = {
+    "VAPID_PUBLIC_KEY": "BIBRlyzCHYGoD0L75ukCGLMH51PX8e6EJoJMvWPJbeqdpTN_AyqqZCSveU3jdRdFnzYZ7FDfNnKwW6a-sJ-NXsg",
+    "VAPID_PRIVATE_KEY": "kSe3Bwhyxx8mrgfSb2RUYmeaP2SQxgk7ifYt_wwfBts",
+    "VAPID_ADMIN_EMAIL": "kacab.langsa@bpjsketenagakerjaan.go.id"
+}
 
 
 # Internationalization

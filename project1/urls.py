@@ -17,9 +17,18 @@ from django.contrib import admin
 from django.urls import path, include
 
 from . import views
+from .views import send_push
+
+from django.conf.urls.static import static
+from django.views.generic import TemplateView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('send_push', send_push),
+    path('webpush/', include('webpush.urls')),
+    path('sw.js', TemplateView.as_view(template_name='sw.js',
+                                       content_type='application/x-javascript')),
     path('pk_langsa/', include('pk_langsa.urls', namespace='pk_langsa')),
     path('', views.index, name='home'),
 
-]
+] 
